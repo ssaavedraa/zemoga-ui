@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Lato Light';
+  src: url('../../public/fonts/Lato-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Lato Regular';
+  src: url('../../public/fonts/Lato-Regular.ttf');
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,12 +26,22 @@
   }
 }
 
+*::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+*::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  background-color: #1f242d;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 121, 121, 0.555);
+  border-radius: 6px;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: white;
 }
