@@ -6,7 +6,7 @@ interface VoteData {
 export const postVote = async (data: VoteData): Promise<any> => {
   const { NEXT_PUBLIC_BACKEND_URL } = process.env
 
-    const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/vote`, {
+    const response = await fetch(`https://zemoga-api.santiagosaavedra.com.co/vote`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

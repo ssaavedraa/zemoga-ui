@@ -33,14 +33,15 @@ export default function Card ({ name, description, category, picture, lastUpdate
 
     if (updatedData.votes.positive !== votes.positive && updatedData.votes.negative !== votes.negative) {
       setShowGreetings(true)
+      setVotesData(updatedData.votes)
+      setTimeElapsedSinceLastVote(updatedData.lastUpdate)
     }
-
-    setVotesData(updatedData.votes)
-    setTimeElapsedSinceLastVote(updatedData.lastUpdate)
   }
 
   useEffect(() => {
-    fetchPersonById()
+    if (sendButtonMessage === 'Vote Again') {
+      fetchPersonById()
+    }
   }, [sendButtonMessage])
 
   return (

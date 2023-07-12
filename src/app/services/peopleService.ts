@@ -2,8 +2,7 @@ import { PeopleData } from '../types/types'
 
 export const fetchPeopleData = async (): Promise<PeopleData[]> => {
   try {
-    const { NEXT_PUBLIC_BACKEND_URL } = process.env
-    const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/people`, { cache: 'no-store' })
+    const response = await fetch(`https://zemoga-api.santiagosaavedra.com.co/people`, { cache: 'no-store' })
 
     return response.json()
   } catch (error) {

@@ -19,16 +19,17 @@ export const useVote = (id: number): UseVoteHook => {
   const sendVote = async () => {
     if (sendButtonMessage === 'Vote Again') {
       setSendButtonMessage('Vote Now')
+    } else {
+      try {
+        await postVote({id, vote: (vote as string)})
+
+        setSendButtonMessage('Vote Again')
+        setVote(undefined)
+      } catch (error: any) {
+        console.error(error.message)
+      }
     }
 
-    try {
-      await postVote({id, vote: (vote as string)})
-
-      setSendButtonMessage('Vote Again')
-      setVote(undefined)
-    } catch (error: any) {
-      console.error(error.message)
-    }
   }
 
   return {
