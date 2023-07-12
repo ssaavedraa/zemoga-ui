@@ -29,7 +29,7 @@ export const cardStyles: CardStyles = {
     card: 'min-w-full card-gradient flex flex-row justify-end relative h-[138px] overflow-y-clip my-2',
     cardIcon: 'w-8 h-8 absolute top-0 left-0 flex items-center',
     image: 'absolute w-[180px] -left-[15px] top-[calc(50%-95px)] -z-10',
-    dataContainer: 'w-[370px] mr-[232px]',
+    dataContainer: 'w-[370px] lg:w-[65%] mr-[232px]',
     name: 'text-[28px] font-regular line-clamp-1',
     description: 'line-clamp-2 mt-[7px] mb-3 text-[15px] leading-normal',
     lastUpdate: 'absolute right-[12px] top-[8px]',
