@@ -53,7 +53,7 @@ export default function Card ({ name, description, category, picture, lastUpdate
           : <FaThumbsUp className='m-auto' />
         }
       </div>
-      <Image src={`/images${picture}`} alt={name} width={300} height={300} className={styles.image}/>
+      <Image src={`/images${picture}`} alt={name} width={300} height={300} className={styles.image} priority/>
       <div className={styles.dataContainer}>
         <span className={styles.name}>{name}</span>
         <small className={styles.description}>{description}</small>

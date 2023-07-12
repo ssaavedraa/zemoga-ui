@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect } from 'react'
 import './globals.css'
 import type { Metadata } from 'next'
 
@@ -11,9 +14,28 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const iframeHeight = document.body.scrollHeight
+      window.parent.postMessage({ type: 'iframeHeight', height: iframeHeight }, '*')
+    };
+
+    handleRouteChange()
+
+    const observer = new MutationObserver(handleRouteChange)
+
+    observer.observe(document.body, { attributes: true, childList: true, subtree: true })
+    return () => {
+      observer.disconnect()
+    }
+
+  }, [])
+
   return (
     <html lang="en">
-      <body className="font-light max-w-[1100px]">{children}</body>
+      <body className="font-light max-w-[1100px]">
+        {children}
+      </body>
     </html>
   )
 }
