@@ -28,16 +28,17 @@ export default function CardContainer ({data}: CardContainerProps) {
       </div>
 
       <main className={styles.cardContainer}>
-        {data.map(({ name, description, category, picture, lastUpdated, votes}) => (
+        {data.map(({ name, description, category, picture, lastUpdated, votes, id}) => (
           <Card
-          key={name}
-          name={name}
-          description={description}
-          category={category}
-          picture={picture}
-          lastUpdated={lastUpdated}
-          votes={votes}
-          view={selectedOption}
+            key={name}
+            name={name}
+            description={description}
+            category={category}
+            picture={picture}
+            lastUpdated={lastUpdated}
+            votes={votes}
+            view={selectedOption}
+            id={id}
           />
           ))}
       </main>
