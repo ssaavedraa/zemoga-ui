@@ -2,7 +2,8 @@ import { PeopleData } from '../types/types'
 
 export const fetchPeopleData = async (): Promise<PeopleData[]> => {
   try {
-    const response = await fetch(`http://localhost:3001/people`, { cache: 'no-store' })
+    const { NEXT_PUBLIC_BACKEND_URL } = process.env
+    const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/people`, { cache: 'no-store' })
 
     return response.json()
   } catch (error) {

@@ -4,7 +4,9 @@ interface VoteData {
 }
 
 export const postVote = async (data: VoteData): Promise<any> => {
-    const response = await fetch('http://localhost:3001/vote', {
+  const { NEXT_PUBLIC_BACKEND_URL } = process.env
+
+    const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/vote`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
