@@ -19,9 +19,9 @@ export interface CardProps {
 export default function Card ({ name, description, category, picture, lastUpdated, votes }: CardProps) {
   return (
     <div className='min-w-[300px] md:min-w-[351px] h-[300px] md:h-auto relative mr-4t bg-gradient-to-t from-[#0000009d] to-transparent mr-5 md:m-0 aspect-square'>
-      <button className='bg-yellow-500 w-8 h-8 absolute top-[90px]'>
+      <div className='bg-yellow-500 w-8 h-8 absolute top-[90px] flex items-center'>
         <FaThumbsDown className='m-auto'/>
-      </button>
+      </div>
       <Image src={`/images${picture}`} alt={name} width={300} height={300} className='absolute w-full h-full -z-10'/>
       <div className='h-full flex flex-col justify-end pb-9 m-auto px-8'>
         <span className='font-regular text-3xl line-clamp-2'>{name}</span>
