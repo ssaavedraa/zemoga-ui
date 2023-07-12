@@ -41,6 +41,8 @@ export default function Card ({ name, description, category, picture, lastUpdate
   useEffect(() => {
     if (sendButtonMessage === 'Vote Again') {
       fetchPersonById()
+    } else {
+      setShowGreetings(false)
     }
   }, [sendButtonMessage])
 
