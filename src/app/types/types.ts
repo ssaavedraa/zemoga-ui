@@ -7,9 +7,9 @@ export interface PeopleData {
   votes: Votes
 }
 
-interface Votes {
-  positive: number
-  negative: number
+export interface Votes {
+  positive: number | string
+  negative: number | string
 }
 
 export interface UseViewHook {
