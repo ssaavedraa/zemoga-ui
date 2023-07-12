@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
+import { cardStyles } from './styles'
+import { ViewOptions } from '@/app/types/types'
 
 interface Votes {
   positive: number
@@ -14,27 +16,30 @@ export interface CardProps {
   lastUpdated: string
   votes: Votes
   key: string
+  view: ViewOptions
 }
 
-export default function Card ({ name, description, category, picture, lastUpdated, votes }: CardProps) {
+export default function Card ({ name, description, category, picture, lastUpdated, votes, view }: CardProps) {
+  const styles = cardStyles[view]
+
   return (
-    <div className='min-w-[300px] md:min-w-[351px] h-[300px] md:h-auto relative mr-4t bg-gradient-to-t from-[#0000009d] to-transparent mr-5 md:m-0 aspect-square'>
-      <div className='bg-yellow-500 w-8 h-8 absolute top-[90px] flex items-center'>
+    <div className={styles.card}>
+      <div className={styles.cardIcon}>
         <FaThumbsDown className='m-auto'/>
       </div>
-      <Image src={`/images${picture}`} alt={name} width={300} height={300} className='absolute w-full h-full -z-10'/>
-      <div className='h-full flex flex-col justify-end pb-9 m-auto px-8'>
-        <span className='font-regular text-3xl line-clamp-2'>{name}</span>
-        <small className='line-clamp-2 mt-[7px] text-[15px] mb-3 leading-normal'>{description}</small>
-        <strong className='font-bold text-xs text-right'>1 month ago in <span className='capitalize'>{category}</span></strong>
-        <div className='my-3 flex flex-row justify-end items-center'>
+      <Image src={`/images${picture}`} alt={name} width={300} height={300} className={styles.image}/>
+      <div className={styles.dataContainer}>
+        <span className={styles.name}>{name}</span>
+        <small className={styles.description}>{description}</small>
+        <strong className={styles.lastUpdate}>1 month ago in <span className='capitalize'>{category}</span></strong>
+        <div className={styles.buttonContainer}>
           <button className='bg-teal-500 w-8 h-8 mx-[6px]'>
             <FaThumbsUp className='m-auto'/>
           </button>
           <button className='bg-yellow-500 w-8 h-8 mx-[6px]'>
             <FaThumbsDown className='m-auto'/>
           </button>
-          <button className='text-center px-3 py-1 text-lg bg-black bg-opacity-60 border-white border-[1px] w-[107px] h-[38px] ml-[6px]'>
+          <button className='text-center px-3 py-1 text-lg bg-black bg-opacity-60 border-white border-[1px] w-[107px] h-[38px] ml-[6px] from-[#000000ab]'>
             Vote Now
           </button>
         </div>
