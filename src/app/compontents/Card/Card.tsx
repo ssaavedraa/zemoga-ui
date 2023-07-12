@@ -18,7 +18,7 @@ export interface CardProps {
 
 export default function Card ({ name, description, category, picture, lastUpdated, votes }: CardProps) {
   return (
-    <div className='min-w-[300px] h-[300px] relative mr-4t bg-gradient-to-t from-[#0000009d] to-transparent ml-3'>
+    <div className='min-w-[300px] h-[300px] relative mr-4t bg-gradient-to-t from-[#0000009d] to-transparent mr-5 md:'>
       <button className='bg-yellow-500 w-8 h-8 absolute top-[90px]'>
         <FaThumbsDown className='m-auto'/>
       </button>
